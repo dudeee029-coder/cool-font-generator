@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cool Fonts Generator</title>
+  <style>
+    body {
+      background: #0f0f0f;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    input {
+      padding: 12px;
+      width: 80%;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+    }
+    .font {
+      background: #1c1c1c;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🔥 Cool Fonts Generator</h1>
+<p>Type your name & copy stylish fonts</p>
+
+<input type="text" id="text" placeholder="Type here..." oninput="generate()">
+
+<div id="output"></div>
+
+<script>
+const fonts = [
+  t => `𝓣𝓮𝔁𝓽: ${t}`,
+  t => `𝕋𝕖𝕩𝕥: ${t}`,
+  t => `𝙏𝙚𝙭𝙩: ${t}`,
+  t => `🅣🅔🅧🅣: ${t}`,
+  t => `★彡 ${t} 彡★`,
+  t => `『${t}』`,
+  t => `꧁༒${t}༒꧂`
+];
+
+function generate() {
+  let text = document.getElementById("text").value;
+  let out = document.getElementById("output");
+  out.innerHTML = "";
+  fonts.forEach(f => {
+    let div = document.createElement("div");
+    div.className = "font";
+    div.innerText = f(text);
+    div.onclick = () => navigator.clipboard.writeText(div.innerText);
+    out.appendChild(div);
+  });
+}
+</script>
+
+</body>
+  </html>
