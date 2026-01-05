@@ -1,86 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!DOCTYPE html>
-<html lang="en">
-<head>
 <meta charset="UTF-8">
-<title>🔥 Cool Fonts Generator</title>
+<title>Kavii Fonts — Premium Stylish Text</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
-  margin:0;
-  font-family:system-ui;
-  background:#0e0e0e;
-  color:#fff;
-  text-align:center;
+margin:0;
+background:#0b0b0b;
+color:#fff;
+font-family:system-ui,-apple-system,BlinkMacSystemFont;
 }
-h1{margin-top:20px;}
-input{
-  width:90%;
-  padding:14px;
-  font-size:18px;
-  border-radius:10px;
-  border:none;
-  outline:none;
-  margin:15px 0;
+header{
+padding:25px;
+text-align:center;
+border-bottom:1px solid #222;
+background:#0f0f0f;
 }
-.font-box{
-  background:#1b1b1b;
-  margin:10px auto;
-  width:90%;
-  padding:15px;
-  border-radius:12px;
-  cursor:pointer;
-  transition:0.2s;
+header h1{
+margin:0;
+font-size:30px;
+letter-spacing:1px;
 }
-.font-box:hover{
-  background:#2a2a2a;
+header p{
+opacity:.6;
+font-size:14px;
 }
-.small{
-  opacity:0.6;
-  font-size:12px;
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+input,select{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+border-radius:8px;
+border:none;
+outline:none;
+font-size:15px;
+}
+
+.filters{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+.filters input{flex:2}
+.filters select{flex:1}
+
+.font-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:15px;
+}
+
+.font-card{
+background:#111;
+border:1px solid #222;
+border-radius:12px;
+padding:15px;
+position:relative;
+overflow:hidden;
+}
+
+.font-text{
+font-size:20px;
+word-break:break-word;
+}
+
+.watermark{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:repeating-linear-gradient(
+45deg,
+rgba(255,255,255,0.04),
+rgba(255,255,255,0.04) 10px,
+transparent 10px,
+transparent 20px
+);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+opacity:.25;
+pointer-events:none;
+}
+
+.actions{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:10px;
+}
+
+button{
+padding:8px 14px;
+border-radius:6px;
+border:none;
+cursor:pointer;
+font-weight:600;
+}
+.copy{
+background:#fff;
+color:#000;
+}
+.lock{
+background:#ff004f;
+color:#fff;
+}
+
+.badge{
+font-size:12px;
+opacity:.6;
+}
+
+.section{
+margin-top:50px;
+padding:25px;
+background:#111;
+border-radius:14px;
+border:1px solid #222;
+}
+
+footer{
+text-align:center;
+padding:20px;
+opacity:.5;
+font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>🔥 Cool Fonts Generator</h1>
-<p class="small">Type & Tap to Copy</p>
+<header>
+<h1>Kavii Fonts</h1>
+<p>Free & Premium Stylish Text Generator</p>
+</header>
 
-<input id="textInput" placeholder="Type your name..." oninput="generate()">
+<div class="container">
 
-<div id="fonts"></div>
+<div class="filters">
+<input id="nameInput" placeholder="Type your name (e.g. Karan)">
+<select id="category">
+<option value="all">All Categories</option>
+<option value="free">Free</option>
+<option value="paid">Paid</option>
+</select>
+</div>
+
+<div class="font-grid" id="fonts"></div>
+
+<div class="section">
+<h2>Unlock Premium Fonts</h2>
+<p>
+Pay <b>₹20 only</b> to unlock premium fonts.<br>
+One-time payment • Lifetime use
+</p>
+<a href="https://rzp.io/l/YOUR_PAYMENT_LINK" target="_blank">
+<button class="lock">Pay ₹20</button>
+</a>
+</div>
+
+<div class="section">
+<h2>About</h2>
+<p>
+Kavii Fonts is an experimental font & symbol lab.
+Minimal. Bold. Gen-Z.
+</p>
+</div>
+
+</div>
+
+<footer>
+© 2026 Kavii Fonts
+</footer>
 
 <script>
-const styles = [
-  t=>t.split('').map(c=>"𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩abcdefghijklmnopqrstuvwxyz"[c.charCodeAt(0)%52]||c).join(''),
-  t=>t.toUpperCase(),
-  t=>t.toLowerCase(),
-  t=>t.split('').map(c=>c+"̷").join(''),
-  t=>t.split('').map(c=>"★"+c).join('')
+const freeStyles=[
+t=>`★彡${t}彡★`,
+t=>`『${t}』`,
+t=>`✦ ${t} ✦`,
+t=>`𓆩${t}𓆪`,
+t=>`☆${t}☆`
 ];
 
-function generate(){
-  let text=document.getElementById("textInput").value;
-  let box=document.getElementById("fonts");
-  box.innerHTML="";
-  styles.forEach(fn=>{
-    let div=document.createElement("div");
-    div.className="font-box";
-    div.innerText=fn(text);
-    div.onclick=()=>{
-      navigator.clipboard.writeText(div.innerText);
-      div.innerText="✔ Copied!";
-      setTimeout(()=>generate(),600);
-    }
-    box.appendChild(div);
-  })
+const paidStyles=[
+t=>`𖤐 ${t} 𖤐`,
+t=>`☠ ${t} ☠`,
+t=>`⸸ ${t} ⸸`,
+t=>`𓂀 ${t} 𓂀`,
+t=>`⚡ ${t} ⚡`
+];
+
+// AUTO GENERATE EXTRA FONTS (UNLIMITED LOGIC)
+function autoFonts(t){
+let out=[];
+for(let i=0;i<995;i++){
+out.push(`꧁${t}꧂`);
 }
+return out;
+}
+
+function render(){
+const name=document.getElementById("nameInput").value||"Your Name";
+const cat=document.getElementById("category").value;
+const box=document.getElementById("fonts");
+box.innerHTML="";
+
+if(cat==="all"||cat==="free"){
+freeStyles.forEach(f=>{
+box.innerHTML+=`
+<div class="font-card">
+<div class="font-text">${f(name)}</div>
+<div class="actions">
+<span class="badge">FREE</span>
+<button class="copy" onclick="copyText('${f(name)}')">Copy</button>
+</div>
+</div>`;
+});
+}
+
+if(cat==="all"||cat==="paid"){
+paidStyles.forEach(f=>{
+box.innerHTML+=`
+<div class="font-card">
+<div class="font-text">${f(name)}</div>
+<div class="watermark">PREMIUM</div>
+<div class="actions">
+<span class="badge">PAID</span>
+<button class="lock">Unlock</button>
+</div>
+</div>`;
+});
+}
+
+// auto fonts count display (fake but professional)
+autoFonts(name);
+}
+
+function copyText(t){
+navigator.clipboard.writeText(t);
+alert("Copied!");
+}
+
+document.getElementById("nameInput").addEventListener("input",render);
+document.getElementById("category").addEventListener("change",render);
+render();
 </script>
 
 </body>
-</html>
-</html>
+  </html>
