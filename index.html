@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+  
 body{
 margin:0;
 background:#0b0b0b;
@@ -137,6 +138,36 @@ opacity:.5;
 font-size:13px;
 }
 </style>
+  /* 🔒 LOCK SYSTEM */
+.locked {
+  filter: blur(7px);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.4;
+}
+
+/* UNLOCK BOX */
+.unlock-box {
+  background: #111;
+  border: 1px solid #333;
+  padding: 18px;
+  margin: 20px 0;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.unlock-box h3 {
+  margin: 0 0 10px;
+}
+
+.unlock-box button {
+  padding: 10px 22px;
+  background: linear-gradient(135deg,#00ff99,#00ccff);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
 </head>
 
 <body>
@@ -147,7 +178,30 @@ font-size:13px;
 </header>
 
 <div class="container">
+<h1>🔥 Kavii Fonts</h1>
 
+<!-- UNLOCK BOX -->
+<div id="unlockBox">
+  <h3>🔒 Unlock Premium Fonts</h3>
+  <input type="text" id="unlockCode" placeholder="Enter unlock code">
+  <button onclick="unlockPremium()">Unlock</button>
+  <p id="unlockMsg"></p>
+</div>
+
+<hr>
+
+<!-- PREMIUM FONTS -->
+<h2>💎 Premium Fonts</h2>
+
+<div class="font-card locked">
+  <p class="font-text">𓆩Kavii𓆪</p>
+  <button disabled>Copy</button>
+</div>
+
+<div class="font-card locked">
+  <p class="font-text">ＫＡＶＩＩ</p>
+  <button disabled>Copy</button>
+</div>
 <div class="filters">
 <input id="nameInput" placeholder="Type your name (e.g. Karan)">
 <select id="category">
@@ -256,6 +310,32 @@ document.getElementById("nameInput").addEventListener("input",render);
 document.getElementById("category").addEventListener("change",render);
 render();
 </script>
+<script>
+  const premium = document.getElementById("premiumFonts");
+  const unlockBox = document.getElementById("unlockBox");
 
+  // page load pe check
+  if (localStorage.getItem("premiumUnlocked") === "yes") {
+    unlock();
+  }
+
+  function unlockFonts() {
+    // FAKE PAYMENT / KEY SYSTEM (abhi)
+    const key = prompt("Enter unlock key:");
+
+    if (key === "KAVII20") {
+      localStorage.setItem("premiumUnlocked", "yes");
+      unlock();
+      alert("Premium Fonts Unlocked 🔓");
+    } else {
+      alert("Invalid key ❌");
+    }
+  }
+
+  function unlock() {
+    premium.classList.remove("locked");
+    unlockBox.style.display = "none";
+  }
+</script>
 </body>
   </html>
