@@ -1,204 +1,341 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Kavii Fonts – Cute Premium Fonts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta name="description" content="Cute Free & Premium Fonts. Unlock paid fonts with blur system. Kavii Fonts">
-<meta name="keywords" content="Cute Fonts, Premium Fonts, Stylish Fonts, Text Generator">
-
-<!-- GOOGLE FONTS (REAL) -->
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&family=Baloo+2&family=Comfortaa&family=Fredoka&family=Poppins&family=Montserrat&family=Playfair+Display&family=Nunito&family=DM+Sans&family=Rubik&family=Varela+Round&family=Gloria+Hallelujah&family=Indie+Flower&family=Chewy&family=Patrick+Hand&family=Kalam&family=ABeeZee&family=Catamaran&family=Manrope&family=Figtree&display=swap" rel="stylesheet">
+<title>Kavii Fonts — Premium Stylish Text</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+  
 body{
-  margin:0;
-  font-family:Poppins,sans-serif;
-  background:#0b0b0b;
-  color:#fff;
+margin:0;
+background:#0b0b0b;
+color:#fff;
+font-family:system-ui,-apple-system,BlinkMacSystemFont;
 }
 header{
-  padding:25px;
-  text-align:center;
-  background:#111;
-  border-bottom:1px solid #222;
+padding:25px;
+text-align:center;
+border-bottom:1px solid #222;
+background:#0f0f0f;
 }
+header h1{
+margin:0;
+font-size:30px;
+letter-spacing:1px;
+}
+header p{
+opacity:.6;
+font-size:14px;
+}
+
 .container{
-  max-width:1000px;
-  margin:auto;
-  padding:20px;
+max-width:1100px;
+margin:auto;
+padding:20px;
 }
-.search{
-  width:100%;
-  padding:12px;
-  border-radius:8px;
-  border:none;
-  margin-bottom:25px;
+
+input,select{
+width:100%;
+padding:14px;
+margin-bottom:12px;
+border-radius:8px;
+border:none;
+outline:none;
+font-size:15px;
 }
-.font-box{
-  background:#141414;
-  padding:18px;
-  border-radius:10px;
-  margin-bottom:18px;
+
+.filters{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:20px;
 }
-.preview{
-  font-size:34px;
-  margin:10px 0;
+.filters input{flex:2}
+.filters select{flex:1}
+
+.font-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:15px;
 }
-.copy-btn{
-  padding:8px 16px;
-  background:#00ffa2;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:bold;
+
+.font-card{
+background:#111;
+border:1px solid #222;
+border-radius:12px;
+padding:15px;
+position:relative;
+overflow:hidden;
 }
-.locked{
-  filter:blur(6px);
-  pointer-events:none;
-  user-select:none;
+
+.font-text{
+font-size:20px;
+word-break:break-word;
 }
-.unlock-box{
-  background:#101010;
-  padding:20px;
-  border-radius:12px;
-  text-align:center;
-  margin-bottom:30px;
+
+.watermark{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:repeating-linear-gradient(
+45deg,
+rgba(255,255,255,0.04),
+rgba(255,255,255,0.04) 10px,
+transparent 10px,
+transparent 20px
+);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+opacity:.25;
+pointer-events:none;
 }
-input{
-  padding:10px;
-  width:70%;
-  border-radius:6px;
-  border:none;
+
+.actions{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:10px;
 }
+
 button{
-  padding:10px 22px;
-  margin-top:10px;
-  border:none;
-  border-radius:6px;
-  background:linear-gradient(135deg,#ff8a00,#ff005d);
-  color:#fff;
-  font-weight:bold;
-  cursor:pointer;
+padding:8px 14px;
+border-radius:6px;
+border:none;
+cursor:pointer;
+font-weight:600;
 }
+.copy{
+background:#fff;
+color:#000;
+}
+.lock{
+background:#ff004f;
+color:#fff;
+}
+
+.badge{
+font-size:12px;
+opacity:.6;
+}
+
+.section{
+margin-top:50px;
+padding:25px;
+background:#111;
+border-radius:14px;
+border:1px solid #222;
+}
+
 footer{
-  text-align:center;
-  padding:20px;
-  font-size:13px;
-  opacity:.5;
+text-align:center;
+padding:20px;
+opacity:.5;
+font-size:13px;
 }
-h2{margin-top:40px;}
 </style>
+  /* 🔒 LOCK SYSTEM */
+.locked {
+  filter: blur(7px);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.4;
+}
+
+/* UNLOCK BOX */
+.unlock-box {
+  background: #111;
+  border: 1px solid #333;
+  padding: 18px;
+  margin: 20px 0;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.unlock-box h3 {
+  margin: 0 0 10px;
+}
+
+.unlock-box button {
+  padding: 10px 22px;
+  background: linear-gradient(135deg,#00ff99,#00ccff);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
 </head>
 
 <body>
 
 <header>
-<h1>🎀 Kavii Fonts</h1>
-<p>Cute Free & Premium Real Fonts</p>
+<h1>Kavii Fonts</h1>
+<p>Free & Premium Stylish Text Generator</p>
 </header>
 
 <div class="container">
+<h1>🔥 Kavii Fonts</h1>
 
-<!-- SEARCH -->
-<input class="search" id="search" placeholder="Search fonts…" onkeyup="searchFonts()">
-
-<!-- UNLOCK -->
-<div class="unlock-box">
-<h3>🔒 Unlock Premium Fonts</h3>
-<p>₹25–30 per font • ₹199 Lifetime</p>
-<input id="unlockCode" placeholder="Enter Unlock Code">
-<br>
-<button onclick="unlock()">Unlock</button>
-<p id="msg"></p>
+<!-- UNLOCK BOX -->
+<div id="unlockBox">
+  <h3>🔒 Unlock Premium Fonts</h3>
+  <input type="text" id="unlockCode" placeholder="Enter unlock code">
+  <button onclick="unlockPremium()">Unlock</button>
+  <p id="unlockMsg"></p>
 </div>
 
-<!-- FREE -->
-<h2>🆓 Free Cute Fonts (5)</h2>
+<hr>
 
-<div class="font-box font">
-<div class="preview" style="font-family:Pacifico;">Karan</div>
-<button class="copy-btn" onclick="copyText('Karan')">Copy</button>
+<!-- PREMIUM FONTS -->
+<h2>💎 Premium Fonts</h2>
+
+<div class="font-card locked">
+  <p class="font-text">𓆩Kavii𓆪</p>
+  <button disabled>Copy</button>
 </div>
 
-<div class="font-box font">
-<div class="preview" style="font-family:Baloo 2;">Karan</div>
-<button class="copy-btn" onclick="copyText('Karan')">Copy</button>
+<div class="font-card locked">
+  <p class="font-text">ＫＡＶＩＩ</p>
+  <button disabled>Copy</button>
+</div>
+<div class="filters">
+<input id="nameInput" placeholder="Type your name (e.g. Karan)">
+<select id="category">
+<option value="all">All Categories</option>
+<option value="free">Free</option>
+<option value="paid">Paid</option>
+</select>
 </div>
 
-<div class="font-box font">
-<div class="preview" style="font-family:Comfortaa;">Karan</div>
-<button class="copy-btn" onclick="copyText('Karan')">Copy</button>
+<div class="font-grid" id="fonts"></div>
+
+<div class="section">
+<h2>Unlock Premium Fonts</h2>
+<p>
+Pay <b>₹20 only</b> to unlock premium fonts.<br>
+One-time payment • Lifetime use
+</p>
+<a href="https://rzp.io/l/YOUR_PAYMENT_LINK" target="_blank">
+<button class="lock">Pay ₹20</button>
+</a>
 </div>
 
-<div class="font-box font">
-<div class="preview" style="font-family:Quicksand;">Karan</div>
-<button class="copy-btn" onclick="copyText('Karan')">Copy</button>
-</div>
-
-<div class="font-box font">
-<div class="preview" style="font-family:Fredoka;">Karan</div>
-<button class="copy-btn" onclick="copyText('Karan')">Copy</button>
-</div>
-
-<!-- PREMIUM -->
-<h2>💎 Premium Cute Fonts (50+)</h2>
-
-<div id="premium" class="locked">
-
-<!-- repeat structure, different fonts -->
-<div class="font-box font"><div class="preview" style="font-family:Gloria Hallelujah;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Indie Flower;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Chewy;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Patrick Hand;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Kalam;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Nunito;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:DM Sans;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Rubik;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Varela Round;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Manrope;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Figtree;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Catamaran;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Montserrat;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Playfair Display;">Karan</div></div>
-<div class="font-box font"><div class="preview" style="font-family:Poppins;">Karan</div></div>
-
+<div class="section">
+<h2>About</h2>
+<p>
+Kavii Fonts is an experimental font & symbol lab.
+Minimal. Bold. Gen-Z.
+</p>
 </div>
 
 </div>
 
 <footer>
-© 2026 Kavii Fonts • Premium Cute Fonts
+© 2026 Kavii Fonts
 </footer>
 
 <script>
+const freeStyles=[
+t=>`★彡${t}彡★`,
+t=>`『${t}』`,
+t=>`✦ ${t} ✦`,
+t=>`𓆩${t}𓆪`,
+t=>`☆${t}☆`
+];
+
+const paidStyles=[
+t=>`𖤐 ${t} 𖤐`,
+t=>`☠ ${t} ☠`,
+t=>`⸸ ${t} ⸸`,
+t=>`𓂀 ${t} 𓂀`,
+t=>`⚡ ${t} ⚡`
+];
+
+// AUTO GENERATE EXTRA FONTS (UNLIMITED LOGIC)
+function autoFonts(t){
+let out=[];
+for(let i=0;i<995;i++){
+out.push(`꧁${t}꧂`);
+}
+return out;
+}
+
+function render(){
+const name=document.getElementById("nameInput").value||"Your Name";
+const cat=document.getElementById("category").value;
+const box=document.getElementById("fonts");
+box.innerHTML="";
+
+if(cat==="all"||cat==="free"){
+freeStyles.forEach(f=>{
+box.innerHTML+=`
+<div class="font-card">
+<div class="font-text">${f(name)}</div>
+<div class="actions">
+<span class="badge">FREE</span>
+<button class="copy" onclick="copyText('${f(name)}')">Copy</button>
+</div>
+</div>`;
+});
+}
+
+if(cat==="all"||cat==="paid"){
+paidStyles.forEach(f=>{
+box.innerHTML+=`
+<div class="font-card">
+<div class="font-text">${f(name)}</div>
+<div class="watermark">PREMIUM</div>
+<div class="actions">
+<span class="badge">PAID</span>
+<button class="lock">Unlock</button>
+</div>
+</div>`;
+});
+}
+
+// auto fonts count display (fake but professional)
+autoFonts(name);
+}
+
 function copyText(t){
- navigator.clipboard.writeText(t);
- alert("Copied!");
+navigator.clipboard.writeText(t);
+alert("Copied!");
 }
 
-function unlock(){
- let c=document.getElementById("unlockCode").value;
- if(c==="FONT25"||c==="LIFETIME199"){
-  document.getElementById("premium").classList.remove("locked");
-  msg.innerHTML="✅ Premium Unlocked";
-  msg.style.color="#00ffa2";
- }else{
-  msg.innerHTML="❌ Invalid Code";
-  msg.style.color="red";
- }
-}
-
-function searchFonts(){
- let input=document.getElementById("search").value.toLowerCase();
- let fonts=document.getElementsByClassName("font");
- for(let i=0;i<fonts.length;i++){
-  let text=fonts[i].innerText.toLowerCase();
-  fonts[i].style.display=text.includes(input)?"block":"none";
- }
-}
+document.getElementById("nameInput").addEventListener("input",render);
+document.getElementById("category").addEventListener("change",render);
+render();
 </script>
+<script>
+  const premium = document.getElementById("premiumFonts");
+  const unlockBox = document.getElementById("unlockBox");
 
+  // page load pe check
+  if (localStorage.getItem("premiumUnlocked") === "yes") {
+    unlock();
+  }
+
+  function unlockFonts() {
+    // FAKE PAYMENT / KEY SYSTEM (abhi)
+    const key = prompt("Enter unlock key:");
+
+    if (key === "KAVII20") {
+      localStorage.setItem("premiumUnlocked", "yes");
+      unlock();
+      alert("Premium Fonts Unlocked 🔓");
+    } else {
+      alert("Invalid key ❌");
+    }
+  }
+
+  function unlock() {
+    premium.classList.remove("locked");
+    unlockBox.style.display = "none";
+  }
+</script>
 </body>
-  </html>
+  </html>  
