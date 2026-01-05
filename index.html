@@ -1,174 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Cool Fonts Generator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>🔥 Cool Fonts Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #0b0b0b;
-      color: #fff;
-      padding: 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    header h1 {
-      font-size: 28px;
-    }
-
-    header p {
-      color: #aaa;
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
-    .input-box {
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      border-radius: 8px;
-      border: none;
-      font-size: 16px;
-      outline: none;
-    }
-
-    .section-title {
-      margin: 30px 0 10px;
-      font-size: 18px;
-      color: #ffb347;
-    }
-
-    .font-box {
-      background: #151515;
-      padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .font-text {
-      font-size: 18px;
-      word-break: break-word;
-    }
-
-    .copy-btn {
-      background: #ffb347;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 13px;
-    }
-
-    .premium {
-      opacity: 0.4;
-    }
-
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 13px;
-      color: #777;
-    }
-  </style>
+<style>
+body{
+  margin:0;
+  font-family:system-ui;
+  background:#0e0e0e;
+  color:#fff;
+  text-align:center;
+}
+h1{margin-top:20px;}
+input{
+  width:90%;
+  padding:14px;
+  font-size:18px;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  margin:15px 0;
+}
+.font-box{
+  background:#1b1b1b;
+  margin:10px auto;
+  width:90%;
+  padding:15px;
+  border-radius:12px;
+  cursor:pointer;
+  transition:0.2s;
+}
+.font-box:hover{
+  background:#2a2a2a;
+}
+.small{
+  opacity:0.6;
+  font-size:12px;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🔥 Cool Fonts Generator</h1>
-    <p>Type your name & copy stylish fonts</p>
-  </header>
+<h1>🔥 Cool Fonts Generator</h1>
+<p class="small">Type & Tap to Copy</p>
 
-  <div class="input-box">
-    <input type="text" id="userInput" placeholder="Type your name here..." />
-  </div>
+<input id="textInput" placeholder="Type your name..." oninput="generate()">
 
-  <div class="section-title">✨ Free Fonts</div>
-
-  <div id="freeFonts"></div>
-
-  <div class="section-title">🔒 Premium Fonts (₹20)</div>
-
-  <div id="premiumFonts"></div>
-
-  <footer>
-    © 2026 Cool Fonts • Made by Kavi
-  </footer>
+<div id="fonts"></div>
 
 <script>
-  const freeStyles = [
-    text => `𝓣𝓱𝓲𝓼 𝓲𝓼 ${text}`,
-    text => `★彡 ${text} 彡★`,
-    text => `✧･ﾟ: *✧ ${text} ✧* :･ﾟ✧`,
-    text => `𓆩 ${text} 𓆪`,
-    text => `⟦ ${text} ⟧`
-  ];
+const styles = [
+  t=>t.split('').map(c=>"𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩abcdefghijklmnopqrstuvwxyz"[c.charCodeAt(0)%52]||c).join(''),
+  t=>t.toUpperCase(),
+  t=>t.toLowerCase(),
+  t=>t.split('').map(c=>c+"̷").join(''),
+  t=>t.split('').map(c=>"★"+c).join('')
+];
 
-  const premiumStyles = [
-    text => `𓂀 ${text} 𓂀`,
-    text => `꧁༒ ${text} ༒꧂`,
-    text => `『 ${text} 』`,
-    text => `⛧ ${text} ⛧`,
-    text => `♛ ${text} ♛`
-  ];
-
-  const input = document.getElementById("userInput");
-  const freeBox = document.getElementById("freeFonts");
-  const premiumBox = document.getElementById("premiumFonts");
-
-  input.addEventListener("input", () => {
-    const value = input.value.trim();
-    freeBox.innerHTML = "";
-    premiumBox.innerHTML = "";
-
-    if (!value) return;
-
-    freeStyles.forEach(style => {
-      const div = document.createElement("div");
-      div.className = "font-box";
-      div.innerHTML = `
-        <span class="font-text">${style(value)}</span>
-        <button class="copy-btn" onclick="copyText('${style(value)}')">Copy</button>
-      `;
-      freeBox.appendChild(div);
-    });
-
-    premiumStyles.forEach(style => {
-      const div = document.createElement("div");
-      div.className = "font-box premium";
-      div.innerHTML = `
-        <span class="font-text">${style(value)}</span>
-        <button class="copy-btn">Locked</button>
-      `;
-      premiumBox.appendChild(div);
-    });
-  });
-
-  function copyText(text) {
-    navigator.clipboard.writeText(text);
-    alert("Copied!");
-  }
+function generate(){
+  let text=document.getElementById("textInput").value;
+  let box=document.getElementById("fonts");
+  box.innerHTML="";
+  styles.forEach(fn=>{
+    let div=document.createElement("div");
+    div.className="font-box";
+    div.innerText=fn(text);
+    div.onclick=()=>{
+      navigator.clipboard.writeText(div.innerText);
+      div.innerText="✔ Copied!";
+      setTimeout(()=>generate(),600);
+    }
+    box.appendChild(div);
+  })
+}
 </script>
 
 </body>
+</html>
 </html>
