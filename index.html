@@ -2,42 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Kavii Fonts – Premium Stylish Fonts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kavii Fonts – Cute Premium Fonts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- SEO -->
-<meta name="description" content="Kavii Fonts – Premium & Free Real Fonts. Unlock stylish fonts for ₹25 or lifetime access at ₹199.">
-<meta name="keywords" content="Stylish Fonts, Premium Fonts, Text Fonts, Kavii Fonts">
+<meta name="description" content="Cute Free & Premium Fonts. Unlock paid fonts with blur system. Kavii Fonts">
+<meta name="keywords" content="Cute Fonts, Premium Fonts, Stylish Fonts, Text Generator">
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Playfair+Display&family=Montserrat&family=Pacifico&family=Oswald&display=swap" rel="stylesheet">
+<!-- GOOGLE FONTS (REAL) -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&family=Baloo+2&family=Comfortaa&family=Fredoka&family=Poppins&family=Montserrat&family=Playfair+Display&family=Nunito&family=DM+Sans&family=Rubik&family=Varela+Round&family=Gloria+Hallelujah&family=Indie+Flower&family=Chewy&family=Patrick+Hand&family=Kalam&family=ABeeZee&family=Catamaran&family=Manrope&family=Figtree&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
-  font-family:Poppins, sans-serif;
+  font-family:Poppins,sans-serif;
   background:#0b0b0b;
   color:#fff;
 }
 header{
-  text-align:center;
   padding:25px;
+  text-align:center;
   background:#111;
   border-bottom:1px solid #222;
 }
 .container{
-  max-width:900px;
+  max-width:1000px;
   margin:auto;
   padding:20px;
 }
+.search{
+  width:100%;
+  padding:12px;
+  border-radius:8px;
+  border:none;
+  margin-bottom:25px;
+}
 .font-box{
   background:#141414;
-  padding:20px;
-  margin-bottom:20px;
+  padding:18px;
   border-radius:10px;
+  margin-bottom:18px;
 }
 .preview{
-  font-size:32px;
+  font-size:34px;
   margin:10px 0;
 }
 .copy-btn{
@@ -56,7 +62,7 @@ header{
 .unlock-box{
   background:#101010;
   padding:20px;
-  border-radius:10px;
+  border-radius:12px;
   text-align:center;
   margin-bottom:30px;
 }
@@ -67,7 +73,7 @@ input{
   border:none;
 }
 button{
-  padding:10px 20px;
+  padding:10px 22px;
   margin-top:10px;
   border:none;
   border-radius:6px;
@@ -76,94 +82,123 @@ button{
   font-weight:bold;
   cursor:pointer;
 }
-.price{
-  opacity:.7;
-  font-size:14px;
-}
 footer{
   text-align:center;
   padding:20px;
   font-size:13px;
   opacity:.5;
 }
+h2{margin-top:40px;}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>🔥 Kavii Fonts</h1>
-<p>Free & Premium Real Fonts</p>
+<h1>🎀 Kavii Fonts</h1>
+<p>Cute Free & Premium Real Fonts</p>
 </header>
 
 <div class="container">
 
-<!-- UNLOCK SYSTEM -->
+<!-- SEARCH -->
+<input class="search" id="search" placeholder="Search fonts…" onkeyup="searchFonts()">
+
+<!-- UNLOCK -->
 <div class="unlock-box">
-<h3>🔓 Unlock Premium Fonts</h3>
-<p class="price">₹25–30 per font | ₹199 Lifetime Access</p>
+<h3>🔒 Unlock Premium Fonts</h3>
+<p>₹25–30 per font • ₹199 Lifetime</p>
 <input id="unlockCode" placeholder="Enter Unlock Code">
 <br>
-<button onclick="unlockFonts()">Unlock</button>
+<button onclick="unlock()">Unlock</button>
 <p id="msg"></p>
 </div>
 
-<!-- FREE FONTS -->
-<h2>🆓 Free Fonts</h2>
+<!-- FREE -->
+<h2>🆓 Free Cute Fonts (5)</h2>
 
-<div class="font-box">
+<div class="font-box font">
 <div class="preview" style="font-family:Pacifico;">Karan</div>
 <button class="copy-btn" onclick="copyText('Karan')">Copy</button>
 </div>
 
-<div class="font-box">
-<div class="preview" style="font-family:Oswald;">Karan</div>
+<div class="font-box font">
+<div class="preview" style="font-family:Baloo 2;">Karan</div>
 <button class="copy-btn" onclick="copyText('Karan')">Copy</button>
 </div>
 
-<!-- PREMIUM FONTS -->
-<h2>💎 Premium Fonts</h2>
-
-<div id="premiumArea" class="locked">
-
-<div class="font-box">
-<div class="preview" style="font-family:Playfair Display;">Karan</div>
+<div class="font-box font">
+<div class="preview" style="font-family:Comfortaa;">Karan</div>
 <button class="copy-btn" onclick="copyText('Karan')">Copy</button>
 </div>
 
-<div class="font-box">
-<div class="preview" style="font-family:Montserrat;">Karan</div>
+<div class="font-box font">
+<div class="preview" style="font-family:Quicksand;">Karan</div>
 <button class="copy-btn" onclick="copyText('Karan')">Copy</button>
 </div>
+
+<div class="font-box font">
+<div class="preview" style="font-family:Fredoka;">Karan</div>
+<button class="copy-btn" onclick="copyText('Karan')">Copy</button>
+</div>
+
+<!-- PREMIUM -->
+<h2>💎 Premium Cute Fonts (50+)</h2>
+
+<div id="premium" class="locked">
+
+<!-- repeat structure, different fonts -->
+<div class="font-box font"><div class="preview" style="font-family:Gloria Hallelujah;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Indie Flower;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Chewy;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Patrick Hand;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Kalam;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Nunito;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:DM Sans;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Rubik;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Varela Round;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Manrope;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Figtree;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Catamaran;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Montserrat;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Playfair Display;">Karan</div></div>
+<div class="font-box font"><div class="preview" style="font-family:Poppins;">Karan</div></div>
 
 </div>
 
 </div>
 
 <footer>
-© 2026 Kavii Fonts • Premium Font Generator
+© 2026 Kavii Fonts • Premium Cute Fonts
 </footer>
 
 <script>
-function copyText(text){
-  navigator.clipboard.writeText(text);
-  alert("Copied!");
+function copyText(t){
+ navigator.clipboard.writeText(t);
+ alert("Copied!");
 }
 
-function unlockFonts(){
-  let code = document.getElementById("unlockCode").value;
-  let msg = document.getElementById("msg");
+function unlock(){
+ let c=document.getElementById("unlockCode").value;
+ if(c==="FONT25"||c==="LIFETIME199"){
+  document.getElementById("premium").classList.remove("locked");
+  msg.innerHTML="✅ Premium Unlocked";
+  msg.style.color="#00ffa2";
+ }else{
+  msg.innerHTML="❌ Invalid Code";
+  msg.style.color="red";
+ }
+}
 
-  if(code === "FONT25" || code === "LIFETIME199"){
-    document.getElementById("premiumArea").classList.remove("locked");
-    msg.innerHTML = "✅ Premium Unlocked!";
-    msg.style.color = "#00ffa2";
-  } else {
-    msg.innerHTML = "❌ Invalid Code";
-    msg.style.color = "red";
-  }
+function searchFonts(){
+ let input=document.getElementById("search").value.toLowerCase();
+ let fonts=document.getElementsByClassName("font");
+ for(let i=0;i<fonts.length;i++){
+  let text=fonts[i].innerText.toLowerCase();
+  fonts[i].style.display=text.includes(input)?"block":"none";
+ }
 }
 </script>
 
 </body>
-</html>    
+  </html>
